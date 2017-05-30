@@ -27,7 +27,7 @@ RUN a2ensite second.conf
 RUN mkdir /home/first
 RUN mkdir /home/second
 
-ADD ./www/first/* /home/firts
+ADD ./www/first/* /home/first
 ADD ./www/second/* /home/second
 
 
