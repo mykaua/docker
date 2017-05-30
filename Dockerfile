@@ -6,7 +6,7 @@ RUN apt-get update -y && apt-get install apache2 apache2-utils -y \
     && apt-get -y install php && apt-get -y install vim
 
 #Add another port for apache
-RUN echo "Listen 8080" > /etc/apache2/ports.conf
+RUN echo "Listen 8080" >> /etc/apache2/ports.conf
 
 # Disable default page
 RUN a2dissite 000-default.conf
