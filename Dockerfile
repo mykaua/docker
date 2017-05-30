@@ -34,10 +34,12 @@ ADD ./www/second/* /home/second
 RUN chown -R www-data:www-data /home/first
 RUN chown -R www-data:www-data /home/second
 
+
 # -v /webapp training/webapp
-#VOLUME ["/wwww"]
+#VOLUME ["/wwww"] Couldn't add volume.
 
 ###############Opens a port for linked containers ######
 EXPOSE 80 8080
 
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+# Autostart apache
+CMD /usr/sbin/apache2ctl -D FOREGROUND
