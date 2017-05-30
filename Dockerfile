@@ -18,14 +18,27 @@ ADD ["./vhost/second.conf", "/etc/apache2/sites-available/"]
 
 #enable virtualhost files
 
-RUN a2densite first.conf
-RUN a2densite second.conf
+RUN a2ensite first.conf
+RUN a2ensite second.conf
 
-#add files of websites, these files are located on host(shared directory)
 
-VOLUME ["/vhost"]
+# copy our files for websites
+
+RUN mkdir /home/first
+RUN mkdir /home/second
+
+ADD ./www/first/* /home/firts
+ADD ./www/second/* /home/second
+
+
+RUN chown -R www-data:www-data /home/first
+RUN chown -R www-data:www-data /home/second
+
+# -v /webapp training/webapp
+
+#VOLUME ["/wwww"]
 
 ###############Opens a port for linked containers ######
-EXPOSE 80
+EXPOSE 80 8080
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
