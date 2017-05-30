@@ -6,7 +6,9 @@ We have two virtualhosts: first.conf and second.conf.
 You can change config of virtualhost for websites in vhost directory.
 
 
-Also, you able to download content in www directory.
+Also, you able to upload content in www directory.
+For first website in www/first directory
+for second website in www/second directory
 
 Create image:
 docker build -t name_image .
