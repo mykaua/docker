@@ -2,8 +2,8 @@
 #My Docker file
 FROM ubuntu
 #install apache and other service
-RUN apt update -y && apt install apache apache2-utils -y \
-    && apt install php && apt install vim
+RUN apt-get update -y && apt-get install apache2 apache2-utils -y \
+    && apt-get -y install php && apt-get -y install vim
 
 RUN echo "Hello world docker test " > /var/www/html/index.html
 
