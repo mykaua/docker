@@ -35,7 +35,6 @@ RUN chown -R www-data:www-data /home/first
 RUN chown -R www-data:www-data /home/second
 
 # -v /webapp training/webapp
-
 #VOLUME ["/wwww"]
 
 ###############Opens a port for linked containers ######
