@@ -1,4 +1,7 @@
 # docker
+
+[![CI](https://github.com/mykaua/docker/actions/workflows/main.yml/badge.svg)](https://github.com/mykaua/docker/actions/workflows/main.yml)
+
 Apache DockerFile
 
 Apache is running on two ports: 80 and 8080
