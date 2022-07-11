@@ -36,23 +36,28 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
     # https://github.com/marketplace/actions/github-tag
-      - name: Bump version and push tag
-        id: tag_version
-        uses: mathieudutour/github-tag-action@v6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+    #      - name: Bump version and push tag
+    #        id: tag_version
+    #        uses: mathieudutour/github-tag-action@v6.0
+    #        with:
+    #          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+            #https://github.com/marketplace/actions/github-tag-bump      
+      - name: Version
+        id: version_tag
+        uses: anothrNick/github-tag-action@1.36.0
 
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: mykaua/apache:${{ steps.tag_version.outputs.new_tag }}
+          tags: mykaua/apache:${{ steps.version_tag.outputs.new_tag }}
 
-      - name: Create a GitHub release
-        uses: ncipollo/release-action@v1
-        with:
-          tag: ${{ steps.tag_version.outputs.new_tag }}
-          name: Release ${{ steps.tag_version.outputs.new_tag }}
-          body: ${{ steps.tag_version.outputs.changelog }}
+#      - name: Create a GitHub release
+#        uses: ncipollo/release-action@v1
+#        with:
+#          tag: ${{ steps.tag_version.outputs.new_tag }}
+#          name: Release ${{ steps.tag_version.outputs.new_tag }}
+#          body: ${{ steps.tag_version.outputs.changelog }}
 
