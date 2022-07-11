@@ -9,6 +9,8 @@ FROM ubuntu
 # Usage: MAINTAINER
 MAINTAINER Mykola Raryk
 
+ENV DEBIAN_FRONTEND=noninteractive 
+
 #install apache and other service
 RUN apt-get update -y && apt-get install apache2 apache2-utils -y \
     && apt-get -y install php && apt-get -y install vim
