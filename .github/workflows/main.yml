@@ -26,6 +26,9 @@ jobs:
       - name: check out the repo
         uses: actions/checkout@v3
 
+      - name: Run gihub ation
+        run: echo Hello, world!
+
       - name: Log in to Docker hub
         uses: docker/login-action@v1
         with:
